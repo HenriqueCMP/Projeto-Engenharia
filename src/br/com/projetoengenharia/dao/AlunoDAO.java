@@ -78,8 +78,20 @@ public class AlunoDAO {
 
         try {
             entityManager = PersistenceUtil.createEntityManager();
-            Query query = entityManager.createQuery("SELECT a FROM Aluno a WHERE a.cpf = :param");
-            query.setParameter("Param", aluno.getCpf());
+            return entityManager.createQuery("SELECT a FROM Aluno a").getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new Exception("Erro ao Consultar");
+        } finally {
+            entityManager.close();
+        }
+    }
+
+    public List<Aluno> buscarPorNome(String busca) throws Exception {
+        try {
+            entityManager = PersistenceUtil.createEntityManager();
+            Query query = entityManager.createQuery("SELECT a FROM Aluno a WHERE a.nome = :param");
+            query.setParameter("param", "%" + busca + "%");
             return query.getResultList();
         } catch (Exception e) {
             e.printStackTrace();
