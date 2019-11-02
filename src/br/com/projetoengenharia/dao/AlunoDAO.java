@@ -47,13 +47,14 @@ public class AlunoDAO {
         }
     }
 
-    public Aluno getPorCPF(String cpf) {
+    public Aluno getPorCPF(String cpf) throws Exception {
         try {
             entityManager = PersistenceUtil.createEntityManager();
             return entityManager.find(Aluno.class, cpf);
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
+            throw new Exception("Erro ao Consultar");
+//            return null;
         } finally {
             entityManager.close();
         }
@@ -74,8 +75,21 @@ public class AlunoDAO {
         }
     }
 
-    public List<Aluno> listar(Aluno aluno) throws Exception {
+    public List<Aluno> listar() throws Exception{
 
+        try {
+            entityManager = PersistenceUtil.createEntityManager();
+            return entityManager.createQuery("SELECT a FROM aluno a").getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            entityManager.close();
+        }
+        
+    }
+    
+    public List<Aluno> listarAlunos() throws Exception {
         try {
             entityManager = PersistenceUtil.createEntityManager();
             return entityManager.createQuery("SELECT a FROM Aluno a").getResultList();

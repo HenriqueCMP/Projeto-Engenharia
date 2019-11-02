@@ -21,8 +21,8 @@ public class Endereco {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String rua;
+    private String numero;
     private String bairro;
-    private String Cidade;
     private String cep;
 
     public long getId() {
@@ -49,14 +49,6 @@ public class Endereco {
         this.bairro = bairro;
     }
 
-    public String getCidade() {
-        return Cidade;
-    }
-
-    public void setCidade(String Cidade) {
-        this.Cidade = Cidade;
-    }
-
     public String getCep() {
         return cep;
     }
@@ -65,9 +57,19 @@ public class Endereco {
         this.cep = cep;
     }
 
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
     @Override
     public String toString() {
-        return "Endereco{" + "id=" + id + ", rua=" + rua + ", bairro=" + bairro + ", Cidade=" + Cidade + ", cep=" + cep + '}';
+        return "Endereco{" + "id=" + id + ", rua=" + rua + ", numero=" + numero + ", bairro=" + bairro + ", cep=" + cep + '}';
     }
+
+    
 
 }
