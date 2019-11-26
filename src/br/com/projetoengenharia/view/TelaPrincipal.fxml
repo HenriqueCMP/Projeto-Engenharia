@@ -7,23 +7,44 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.projetoengenharia.controller.TelaPrincipalController">
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="800.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.projetoengenharia.controller.TelaPrincipalController">
    <children>
-      <Button fx:id="btnCadastrar" layoutX="103.0" layoutY="263.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" text="Cadastrar Aluno">
-         <font>
-            <Font name="Times New Roman" size="20.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnVisualizar" layoutX="350.0" layoutY="263.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" text="Visualizar Aluno">
-         <font>
-            <Font name="Times New Roman" size="20.0" />
-         </font>
-      </Button>
-      <ImageView fitHeight="216.0" fitWidth="280.0" layoutX="160.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView layoutX="200.0" layoutY="-25.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../imagens/WhatsApp%20Image%202019-10-30%20at%2021.47.17.jpeg" />
          </image>
       </ImageView>
-      <TextField fx:id="txtCPF" layoutX="350.0" layoutY="225.0" prefHeight="25.0" prefWidth="180.0" promptText="Digite CPF do Aluno" />
+      <Button fx:id="btnCadastrarAluno" layoutX="48.0" layoutY="213.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" text="Cadastrar Aluno">
+         <font>
+            <Font name="Times New Roman" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnVisualizarAluno" layoutX="48.0" layoutY="320.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" text="Visualizar Aluno">
+         <font>
+            <Font name="Times New Roman" size="20.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txtCPFAluno" layoutX="48.0" layoutY="288.0" prefHeight="25.0" prefWidth="180.0" promptText="Digite CPF do Aluno" />
+      <Button fx:id="btnCadastrarFuncionario" layoutX="258.0" layoutY="213.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="219.0" text="Cadastrar Funcionario">
+         <font>
+            <Font name="Times New Roman" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnVisualizarFuncionario" layoutX="258.0" layoutY="320.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="219.0" text="Visualizar Funcionario">
+         <font>
+            <Font name="Times New Roman" size="20.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txtBuscaFuncionario" layoutX="258.0" layoutY="288.0" prefHeight="25.0" prefWidth="219.0" promptText="Digite CPF do Funcionario" />
+      <Button fx:id="btnRelatorios" layoutX="510.0" layoutY="213.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" text="Relatorios">
+         <font>
+            <Font name="Times New Roman" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnSair" layoutX="660.0" layoutY="409.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="Logout">
+         <font>
+            <Font name="Times New Roman" size="20.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

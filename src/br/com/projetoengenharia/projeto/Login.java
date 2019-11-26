@@ -5,7 +5,6 @@
  */
 package br.com.projetoengenharia.projeto;
 
-import br.com.projetoengenharia.util.ManipulacaoPaginasUtil;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +16,7 @@ import javafx.stage.Stage;
  *
  * @author henri
  */
-public class TelaPrincipal extends Application {
+public class Login extends Application {
 
     private static Stage stage;
 
@@ -26,7 +25,7 @@ public class TelaPrincipal extends Application {
     }
 
     public static void setStage(Stage stage) {
-        TelaPrincipal.stage = stage;
+        Login.stage = stage;
     }
 
     public static void main(String[] args) {
@@ -36,7 +35,7 @@ public class TelaPrincipal extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         // Carrega FXML
-        Parent root = FXMLLoader.load(getClass().getResource("/br/com/projetoengenharia/view/TelaPrincipal.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/br/com/projetoengenharia/view/Login.fxml"));
         // Add o FXML em uma Cena
         Scene scene = new Scene(root);
         //Add titula na janela
@@ -44,16 +43,10 @@ public class TelaPrincipal extends Application {
         //Add a cena em uma janela;
         stage.setScene(scene);
         //Abre a janela
-        if (ManipulacaoPaginasUtil.getFuncionarioAtual() == null) {
-            Login login = new Login();
-            login.start(new Stage());
-        } else {
-            System.out.println("Usuario atual: " + ManipulacaoPaginasUtil.getFuncionarioAtual());
-            stage.show();
-            setStage(stage);
-            stage.setResizable(false);
-        }
+        stage.show();
+        setStage(stage);
+        stage.setResizable(false);
 
     }
-
+    
 }

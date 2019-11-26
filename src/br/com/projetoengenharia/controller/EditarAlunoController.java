@@ -48,9 +48,6 @@ public class EditarAlunoController implements Initializable {
     private TextField txtCPF;
 
     @FXML
-    private DatePicker txtDate;
-
-    @FXML
     private TextField txtTelefone;
 
     @FXML
@@ -125,8 +122,8 @@ public class EditarAlunoController implements Initializable {
     private void preencherEditavel() {
         txtCPF.setText(alunoAtual.getCpf());
         txtNome.setText(alunoAtual.getNome());
-        LocalDate localDate = alunoAtual.getDataNascimento().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        txtDate.setValue(localDate);
+//        LocalDate localDate = alunoAtual.getDataNascimento().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+//        txtDate.setValue(localDate);
         txtTelefone.setText(alunoAtual.getContato().getTelefone());
         txtEmail.setText(alunoAtual.getContato().getEmail());
         txtRua.setText(alunoAtual.getEndereco().getRua());
@@ -142,7 +139,7 @@ public class EditarAlunoController implements Initializable {
 
         aluno.setCpf(txtCPF.getText());
         aluno.setNome(txtNome.getText());
-        aluno.setDataNascimento(Date.from(txtDate.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+//        aluno.setDataNascimento(Date.from(txtDate.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
         contato.setTelefone(txtTelefone.getText());
         contato.setEmail(txtEmail.getText());
         aluno.setContato(contato);
