@@ -65,7 +65,7 @@ public class FuncionarioDAO {
         try {
             entityManager = PersistenceUtil.createEntityManager();
             entityManager.getTransaction().begin();
-            funcionario = entityManager.find(Funcionario.class, funcionario.getCpf());
+            funcionario = entityManager.find(Funcionario.class, funcionario.getLogin());
             entityManager.remove(funcionario);
             entityManager.getTransaction().commit();
         } catch (Exception e) {

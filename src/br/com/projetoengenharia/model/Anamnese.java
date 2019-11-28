@@ -7,6 +7,8 @@ package br.com.projetoengenharia.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -17,6 +19,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Anamnese {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String tempoAtividade;
     private String desconforto;
@@ -31,7 +34,7 @@ public class Anamnese {
     private String opiniaoMedica;
     private String nomeContato;
     private String numeroContato;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Aluno aluno;
 
     public long getId() {

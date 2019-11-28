@@ -124,7 +124,12 @@
             <Font name="Times New Roman" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="btnVoltar" layoutX="139.0" layoutY="359.0" mnemonicParsing="false" text="Voltar">
+      <Button fx:id="btnVoltar" layoutX="14.0" layoutY="359.0" mnemonicParsing="false" text="Voltar">
+         <font>
+            <Font name="Times New Roman" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnDados" layoutX="43.0" layoutY="177.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="87.0" text="Dados">
          <font>
             <Font name="Times New Roman" size="20.0" />
          </font>

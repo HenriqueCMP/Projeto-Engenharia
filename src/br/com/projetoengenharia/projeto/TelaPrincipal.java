@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 /**
  *
@@ -52,6 +53,9 @@ public class TelaPrincipal extends Application {
             stage.show();
             setStage(stage);
             stage.setResizable(false);
+            stage.setOnCloseRequest((WindowEvent arg0) -> {
+                System.exit(0);
+            });
         }
 
     }

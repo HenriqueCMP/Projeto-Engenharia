@@ -67,6 +67,9 @@ public class VisualizarAlunoController implements Initializable {
     @FXML
     private Button btnVoltar;
 
+    @FXML
+    private Button btnDados;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -81,6 +84,17 @@ public class VisualizarAlunoController implements Initializable {
             if (e.getCode() == KeyCode.ENTER) {
                 //ManipulacaoPaginasUtil.setAlunoAtual(alunoAtual);
                 ManipulacaoPaginasUtil.abreEditarAluno();
+                ManipulacaoPaginasUtil.fecharVisualizarAluno();
+            }
+        });
+
+        btnDados.setOnMouseClicked((MouseEvent e) -> {
+            ManipulacaoPaginasUtil.abreDados();
+            ManipulacaoPaginasUtil.fecharVisualizarAluno();
+        });
+        btnDados.setOnKeyPressed((KeyEvent e) -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                ManipulacaoPaginasUtil.abreDados();
                 ManipulacaoPaginasUtil.fecharVisualizarAluno();
             }
         });

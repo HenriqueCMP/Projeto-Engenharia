@@ -8,8 +8,11 @@ package br.com.projetoengenharia.util;
 import br.com.projetoengenharia.model.Aluno;
 import br.com.projetoengenharia.model.Funcionario;
 import br.com.projetoengenharia.projeto.CadastrarAluno;
+import br.com.projetoengenharia.projeto.CadastrarAnamnese;
 import br.com.projetoengenharia.projeto.CadastrarFuncionario;
+import br.com.projetoengenharia.projeto.Dados;
 import br.com.projetoengenharia.projeto.EditarAluno;
+import br.com.projetoengenharia.projeto.EditarFuncionario;
 import br.com.projetoengenharia.projeto.Login;
 import br.com.projetoengenharia.projeto.TelaPrincipal;
 import br.com.projetoengenharia.projeto.VisualizarAluno;
@@ -31,6 +34,9 @@ public class ManipulacaoPaginasUtil {
     private static Login login = new Login();
     private static CadastrarFuncionario cadastrarFuncionario = new CadastrarFuncionario();
     private static VisualizarFuncionario visualizarFuncionario = new VisualizarFuncionario();
+    private static EditarFuncionario editarFuncionario = new EditarFuncionario();
+    private static Dados dados = new Dados();
+    private static CadastrarAnamnese cadastrarAnamnese = new CadastrarAnamnese();
 //    private static Alunos alunos = new Alunos();
     
     public static Aluno alunoAtual = null;
@@ -69,6 +75,18 @@ public class ManipulacaoPaginasUtil {
         TelaPrincipal.getStage().close();
     }
     
+    public static void abreDados(){
+        try {
+            dados.start(new Stage());
+        } catch (Exception ex) {
+            Logger.getLogger(ManipulacaoPaginasUtil.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static void fechaDados(){
+        Dados.getStage().close();
+    }
+    
     public static void abreCadastroAluno(){
         try {
             cadastrarAluno.start(new Stage());
@@ -79,6 +97,18 @@ public class ManipulacaoPaginasUtil {
     
     public static void fecharCadastroAluno(){
         CadastrarAluno.getStage().close();
+    }
+    
+    public static void abreCadastroAnamnese(){
+        try {
+            cadastrarAnamnese.start(new Stage());
+        } catch (Exception ex) {
+            Logger.getLogger(ManipulacaoPaginasUtil.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static void fecharCadastroAnamnese(){
+        CadastrarAnamnese.getStage().close();
     }
     
     public static void abreCadastroFuncionario(){
@@ -150,5 +180,17 @@ public class ManipulacaoPaginasUtil {
     
     public static void fecharEditarAluno(){
         EditarAluno.getStage().close();
+    }
+    
+    public static void abreEditarFuncionario(){
+        try {
+            editarFuncionario.start(new Stage());
+        } catch (Exception ex) {
+            Logger.getLogger(ManipulacaoPaginasUtil.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static void fecharEditarFuncionario(){
+        EditarFuncionario.getStage().close();
     }
 }

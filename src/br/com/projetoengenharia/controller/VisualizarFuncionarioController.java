@@ -16,6 +16,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -51,6 +54,35 @@ public class VisualizarFuncionarioController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         preencher();
+        btnVoltar.setOnMouseClicked((MouseEvent e) -> {
+            ManipulacaoPaginasUtil.abreTP();
+            ManipulacaoPaginasUtil.fecharVisualizarFuncionario();
+        });
+
+        btnVoltar.setOnKeyPressed((KeyEvent e) -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                ManipulacaoPaginasUtil.abreTP();
+                ManipulacaoPaginasUtil.fecharVisualizarFuncionario();
+            }
+        });
+        
+        btnEditar.setOnMouseClicked((MouseEvent e) -> {
+            ManipulacaoPaginasUtil.abreEditarFuncionario();
+            ManipulacaoPaginasUtil.fecharVisualizarFuncionario();
+        });
+        btnEditar.setOnKeyPressed((KeyEvent e) -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                ManipulacaoPaginasUtil.abreEditarFuncionario();
+                ManipulacaoPaginasUtil.fecharVisualizarFuncionario();
+            }
+        });
+        
+        btnDeletar.setOnMouseClicked((MouseEvent e) -> {
+            confirmarDeletar();
+        });
+        btnDeletar.setOnKeyPressed((KeyEvent e) -> {
+            confirmarDeletar();
+        });
     }    
      private void preencher() {
         lblCpf.setText(funcionarioVisualizar.getCpf());
@@ -64,7 +96,7 @@ public class VisualizarFuncionarioController implements Initializable {
             try {
                 funcionarioDAO.remover(funcionarioVisualizar);
                 ManipulacaoPaginasUtil.abreTP();
-                ManipulacaoPaginasUtil.fecharVisualizarAluno();
+                ManipulacaoPaginasUtil.fecharVisualizarFuncionario();
             } catch (Exception ex) {
                 Logger.getLogger(VisualizarAlunoController.class.getName()).log(Level.SEVERE, null, ex);
             }

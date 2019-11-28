@@ -156,9 +156,9 @@ public class EditarAlunoController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Exito");
             alert.setHeaderText("Edição Concluída");
-            alert.setContentText("Contato Editado com Sucesso");
+            alert.setContentText("Aluno Editado com Sucesso");
             alert.show();
-            ManipulacaoPaginasUtil.fecharCadastroAluno();
+            ManipulacaoPaginasUtil.fecharEditarAluno();
         } catch (Exception ex) {
             Logger.getLogger(CadastrarAlunoController.class.getName()).log(Level.SEVERE, null, ex);
         }

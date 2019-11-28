@@ -130,7 +130,7 @@ public class TelaPrincipalController implements Initializable {
 
         btnVisualizarFuncionario.setOnMouseClicked((MouseEvent e) -> {
             try {
-                verificarCPFFuncionario();
+                verificarLoginFuncionario();
             } catch (Exception ex) {
                 Logger.getLogger(TelaPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -138,7 +138,7 @@ public class TelaPrincipalController implements Initializable {
         btnVisualizarFuncionario.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
                 try {
-                    verificarCPFFuncionario();
+                    verificarLoginFuncionario();
                 } catch (Exception ex) {
                     Logger.getLogger(TelaPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -214,7 +214,7 @@ public class TelaPrincipalController implements Initializable {
         }
     }
 
-    private void verificarCPFFuncionario() throws Exception {
+    private void verificarLoginFuncionario() throws Exception {
         if (!verificarFuncionarioExistente()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -223,8 +223,8 @@ public class TelaPrincipalController implements Initializable {
             alert.show();
         } else {
             if (txtBuscaFuncionario.getText() != null) {
-                //funcionarioVisualizar = funcionarioDAO.getPorCPF(txtBuscaFuncionario.getText());
                 if (funcionarioDAO.buscarPorLogin(txtBuscaFuncionario.getText()) != null) {
+                    System.out.println(funcionarioDAO.buscarPorLogin(txtBuscaFuncionario.getText()));
                     ManipulacaoPaginasUtil.setFuncionarioVisualizar(funcionarioDAO.buscarPorLogin(txtBuscaFuncionario.getText()));
                     ManipulacaoPaginasUtil.abreVisualizarFuncionario();
                     ManipulacaoPaginasUtil.fechaTP();
@@ -252,7 +252,6 @@ public class TelaPrincipalController implements Initializable {
     private boolean verificarFuncionarioExistente() {
         for (Funcionario func : funcionarios) {
             if (func.getLogin().equals(txtBuscaFuncionario.getText()));
-            System.out.println(func);
             return true;
         }
         return false;

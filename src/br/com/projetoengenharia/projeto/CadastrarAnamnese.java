@@ -17,7 +17,7 @@ import javafx.stage.WindowEvent;
  *
  * @author henri
  */
-public class CadastrarFuncionario extends Application {
+public class CadastrarAnamnese extends Application {
 
     private static Stage stage;
 
@@ -26,7 +26,7 @@ public class CadastrarFuncionario extends Application {
     }
 
     public static void setStage(Stage stage) {
-        CadastrarFuncionario.stage = stage;
+        CadastrarAnamnese.stage = stage;
     }
 
     public static void main(String[] args) {
@@ -36,11 +36,11 @@ public class CadastrarFuncionario extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         // Carrega FXML
-        Parent root = FXMLLoader.load(getClass().getResource("/br/com/projetoengenharia/view/CadastrarFuncionario.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/br/com/projetoengenharia/view/CadastrarAnamnese.fxml"));
         // Add o FXML em uma Cena
         Scene scene = new Scene(root);
         //Add titula na janela
-        stage.setTitle("Boa Forma: Cadastrar Funcionario");
+        stage.setTitle("Boa Forma: Cadastrar Anamnese");
         //Add a cena em uma janela;
         stage.setScene(scene);
         //Abre a janela

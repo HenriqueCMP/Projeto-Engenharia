@@ -126,7 +126,7 @@ public class CadastrarAlunoController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Exito");
             alert.setHeaderText("Cadastro Concluído");
-            alert.setContentText("Contato Cadastrado com Sucesso");
+            alert.setContentText("Aluno Cadastrado com Sucesso");
             alert.show();
             ManipulacaoPaginasUtil.fecharCadastroAluno();
         } catch (Exception ex) {
