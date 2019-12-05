@@ -155,19 +155,13 @@ public class TelaPrincipalController implements Initializable {
         });
 
         btnRelatorios.setOnMouseClicked((MouseEvent e) -> {
-            try {
-                gerarPDF();
-            } catch (DocumentException ex) {
-                Logger.getLogger(TelaPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            ManipulacaoPaginasUtil.abreRelatorios();
+            ManipulacaoPaginasUtil.fechaTP();
         });
         btnRelatorios.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
-                try {
-                    gerarPDF();
-                } catch (DocumentException ex) {
-                    Logger.getLogger(TelaPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                ManipulacaoPaginasUtil.abreRelatorios();
+                ManipulacaoPaginasUtil.fechaTP();
             }
         });
         if (ManipulacaoPaginasUtil.getFuncionarioAtual() != null) {
@@ -263,47 +257,6 @@ public class TelaPrincipalController implements Initializable {
         ManipulacaoPaginasUtil.fechaTP();
     }
 
-    private void gerarPDF() throws DocumentException {
-        Document doc = new Document();
-        try {
-            PdfWriter pdf = PdfWriter.getInstance(doc, new FileOutputStream("C:\\Users\\henri\\Desktop\\Projeto_engenharia\\Alunos.pdf"));
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(TelaPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (DocumentException ex) {
-            Logger.getLogger(TelaPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        float[] pointColumnWidths = {75F, 75F, 75F, 75F};
-        PdfPTable table = new PdfPTable(pointColumnWidths);
-
-        PdfPCell celulaNome = new PdfPCell(new Phrase("Nome"));
-        celulaNome.setHorizontalAlignment(Element.ALIGN_CENTER);
-        PdfPCell celulaCpf = new PdfPCell(new Phrase("CPF"));
-        celulaCpf.setHorizontalAlignment(Element.ALIGN_CENTER);
-        PdfPCell celulaTelefone = new PdfPCell(new Phrase("Telefone"));
-        celulaTelefone.setHorizontalAlignment(Element.ALIGN_CENTER);
-        PdfPCell celulaEmail = new PdfPCell(new Phrase("E-mail"));
-        celulaEmail.setHorizontalAlignment(Element.ALIGN_CENTER);
-
-        doc.open();
-        table.addCell(celulaNome);
-        table.addCell(celulaCpf);
-        table.addCell(celulaTelefone);
-        table.addCell(celulaEmail);
-
-        for (Aluno aluno : alunos) {
-            celulaNome = new PdfPCell(new Phrase(aluno.getNome()));
-            celulaCpf = new PdfPCell(new Phrase(aluno.getCpf()));
-            celulaTelefone = new PdfPCell(new Phrase(aluno.getContato().getTelefone()));
-            celulaEmail = new PdfPCell(new Phrase(aluno.getContato().getEmail()));
-
-            table.addCell(celulaNome);
-            table.addCell(celulaCpf);
-            table.addCell(celulaTelefone);
-            table.addCell(celulaEmail);
-
-        }
-        doc.add(table);
-        doc.close();
-    }
+    
 
 }

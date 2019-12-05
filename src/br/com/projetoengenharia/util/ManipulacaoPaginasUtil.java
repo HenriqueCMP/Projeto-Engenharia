@@ -14,6 +14,7 @@ import br.com.projetoengenharia.projeto.Dados;
 import br.com.projetoengenharia.projeto.EditarAluno;
 import br.com.projetoengenharia.projeto.EditarFuncionario;
 import br.com.projetoengenharia.projeto.Login;
+import br.com.projetoengenharia.projeto.Relatorios;
 import br.com.projetoengenharia.projeto.TelaPrincipal;
 import br.com.projetoengenharia.projeto.VisualizarAluno;
 import br.com.projetoengenharia.projeto.VisualizarFuncionario;
@@ -37,6 +38,8 @@ public class ManipulacaoPaginasUtil {
     private static EditarFuncionario editarFuncionario = new EditarFuncionario();
     private static Dados dados = new Dados();
     private static CadastrarAnamnese cadastrarAnamnese = new CadastrarAnamnese();
+    private static Relatorios relatorios = new Relatorios();
+    
 //    private static Alunos alunos = new Alunos();
     
     public static Aluno alunoAtual = null;
@@ -73,6 +76,17 @@ public class ManipulacaoPaginasUtil {
     }
     public static void fechaTP(){
         TelaPrincipal.getStage().close();
+    }
+    
+    public static void abreRelatorios() {
+        try {
+            relatorios.start(new Stage());
+        } catch (Exception ex) {
+            Logger.getLogger(ManipulacaoPaginasUtil.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public static void fechaRelatorios(){
+        Relatorios.getStage().close();
     }
     
     public static void abreDados(){

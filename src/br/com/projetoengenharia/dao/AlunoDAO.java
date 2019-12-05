@@ -79,7 +79,7 @@ public class AlunoDAO {
 
         try {
             entityManager = PersistenceUtil.createEntityManager();
-            return entityManager.createQuery("SELECT a FROM aluno a").getResultList();
+            return entityManager.createQuery("SELECT a FROM Aluno a").getResultList();
         } catch (Exception e) {
             e.printStackTrace();
             return null;

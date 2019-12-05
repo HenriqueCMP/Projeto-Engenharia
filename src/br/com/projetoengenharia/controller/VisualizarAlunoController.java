@@ -73,6 +73,13 @@ public class VisualizarAlunoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        if(ManipulacaoPaginasUtil.getFuncionarioAtual().getCargo().equals("Personal")){
+            btnDados.setDisable(false);
+            btnDados.setVisible(true);
+        }else{
+            btnDados.setDisable(true);
+            btnDados.setVisible(false);
+        }
         preencher();
 
         btnEditar.setOnMouseClicked((MouseEvent e) -> {

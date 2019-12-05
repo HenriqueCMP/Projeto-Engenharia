@@ -6,6 +6,8 @@
 
 import br.com.projetoengenharia.dao.AlunoDAO;
 import br.com.projetoengenharia.model.Aluno;
+import br.com.projetoengenharia.model.Contato;
+import br.com.projetoengenharia.model.Endereco;
 import br.com.projetoengenharia.util.DateUtil;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -48,15 +50,24 @@ public class AlunoTest {
     
     private void inserir() throws Exception{
         Aluno aluno = new Aluno();
+        Contato contato = new Contato();
+        Endereco endereco = new Endereco();
+        contato.setTelefone("111");
+        contato.setEmail("teste@teste.com");
+        endereco.setRua("Rua teste");
+        endereco.setNumero("000");
+        endereco.setBairro("teste");
+        endereco.setCep("58000-000");
         aluno.setCpf("000000");
         aluno.setNome("aluno");
         aluno.setDataNascimento(DateUtil.stringToDate("19/11/2019"));
-        aluno.getContato().setTelefone("00000000");
-        aluno.getContato().setEmail("teste@teste.com");
-        aluno.getEndereco().setRua("Rua teste");
-        aluno.getEndereco().setNumero("000");
-        aluno.getEndereco().setBairro("teste");
-        aluno.getEndereco().setCep("58000-000");
+        aluno.setContato(contato);
+//        aluno.getContato().setTelefone("111");
+//        aluno.getContato().setEmail("teste@teste.com");
+//        aluno.getEndereco().setRua("Rua teste");
+//        aluno.getEndereco().setNumero("000");
+//        aluno.getEndereco().setBairro("teste");
+//        aluno.getEndereco().setCep("58000-000");
         
         alunoDAO.inserir(aluno);
     }
@@ -73,6 +84,21 @@ public class AlunoTest {
         assertEquals(quantidadeAnterior + 1, quantidadeAtual);
         // apagar o registro
         excluir();
+    }
+    @Test
+    public void testeExcluir() throws Exception {
+        
+        inserir();
+        
+        int quantidadeAnterior = alunoDAO.listar().size();
+        
+        excluir();
+        
+        int quantidadeAtual = alunoDAO.listar().size();
+        
+        assertEquals(quantidadeAnterior - 1, quantidadeAtual);
+        
+        
     }
     
     

@@ -46,10 +46,10 @@ public class FuncionarioDAO {
         }
     }
 
-    public Funcionario getPorCPF(String cpf) throws Exception {
+    public Funcionario buscarPorLogin(String login) throws Exception {
         try {
             entityManager = PersistenceUtil.createEntityManager();
-            return entityManager.find(Funcionario.class, cpf);
+            return entityManager.find(Funcionario.class, login);
         } catch (Exception e) {
             e.printStackTrace();
             throw new Exception("Erro ao Consultar");
@@ -104,10 +104,10 @@ public class FuncionarioDAO {
         }
     }
     
-    public Funcionario buscarPorLogin(String busca) throws Exception {
+    public Funcionario getPorCPF(String busca) throws Exception {
         try {
             entityManager = PersistenceUtil.createEntityManager();
-            Query query = entityManager.createQuery("SELECT f FROM Funcionario f WHERE f.login = :param");
+            Query query = entityManager.createQuery("SELECT f FROM Funcionario f WHERE f.cpf = :param");
             query.setParameter("param", busca);
             return (Funcionario) query.getSingleResult();
         } catch (Exception e) {
